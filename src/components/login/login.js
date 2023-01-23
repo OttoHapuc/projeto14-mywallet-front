@@ -2,16 +2,27 @@ import colors from "../../providers/themeColors";
 import fonts from "../../providers/fonts";
 import Back from "../../assets/css/base"
 
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-export default function Login(){
+export default function Login({setUser}){
 
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+    const navigate = useNavigate();
     const[userEmail, setUserEmail] = useState("");
 	const[password, setPassword] = useState("");
 
-    function login(event){
+    async function login(event){
         event.preventDefault();
+        await axios.post(`http://${REACT_APP_API_URL}`,{
+            email: userEmail,
+            password: password
+        })
+            .then((element) => {
+                setUser(element.data);
+            })
+            .catch ((error) => { console.log(error) });
+        navigate("/home")
     }
     return(
         <Back colors={colors} fonts={fonts}>

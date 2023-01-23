@@ -2,11 +2,13 @@ import colors from "../../providers/themeColors";
 import fonts from "../../providers/fonts";
 import Back from "../../assets/css/base"
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 export default function SignUp() {
 
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+    const navigate = useNavigate();
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +16,16 @@ export default function SignUp() {
 
     function signUp(event) {
         event.preventDefault();
+        axios.post(`http://${REACT_APP_API_URL}cadastro`,{
+            name: userName,
+            email: userEmail,
+            password: password,
+            confirmPassword: confirmPassword})
+            .then((element) => {
+                console.log(element)
+            })
+            .catch ((error) => { console.log(error) });
+        navigate("/")
     }
     return (
         <Back colors={colors} fonts={fonts}>

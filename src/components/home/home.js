@@ -2,7 +2,12 @@ import colors from "../../providers/themeColors";
 import fonts from "../../providers/fonts";
 import Back from "../../assets/css/base"
 
-export default function Home() {
+import { useEffect } from "react";
+export default function Home({user}) {
+
+    useEffect(()=>{
+        
+    },[])
     return (
         <Back colors={colors} fonts={fonts}>
             <div className="header">
