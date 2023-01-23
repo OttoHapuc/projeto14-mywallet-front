@@ -8,6 +8,11 @@ justify-content: center;
 align-items: center;
 background-color: ${porp => porp.colors.backColor};
 
+form{
+    display: flex;
+    flex-direction: column;
+}
+
 h1{
     font-family: ${prop => prop.fonts.fontFamily.logo}
 }
