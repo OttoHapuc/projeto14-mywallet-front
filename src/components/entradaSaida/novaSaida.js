@@ -20,7 +20,7 @@ export default function NovaSaida({user}) {
             description,
             type: isOutput
         };
-        await axios.post(`http://${REACT_APP_API_URL}/nova-entrada}`,obj,{headers:{user:user.name}})
+        await axios.post(`http://${REACT_APP_API_URL}/nova-entrada-saida`,obj,{headers:{user:user.name}})
         .then(res => {
             console.log(res);
             navigate("/home")
