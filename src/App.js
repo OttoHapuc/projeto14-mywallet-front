@@ -19,8 +19,8 @@ function App() {
           <Route path="/" element={<Login setUser={setUser}/>} />
           <Route path="/cadastro" element={<SignUp />} />
           <Route path="/home" element={<Home user={user}/>} />
-          <Route path="/nova-entrada" element={<NovaEntrada />} />
-          <Route path="/nova-saida" element={<NovaSaida />} />
+          <Route path="/nova-entrada" element={<NovaEntrada user={user}/>} />
+          <Route path="/nova-saida" element={<NovaSaida user={user}/>} />
         </Routes>
       </BrowserRouter>
     </div>

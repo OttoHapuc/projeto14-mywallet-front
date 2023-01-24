@@ -2,15 +2,30 @@ import Back from "../../assets/css/base";
 import colors from "../../providers/themeColors";
 import fonts from "../../providers/fonts";
 
+import { useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-export default function NovaEntrada() {
+export default function NovaEntrada({user}) {
 
-    const [value, setValue] = useState("")
-    const [description, setDescription] = useState("")
+    const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+    const navigate = useNavigate();
+    const [value, setValue] = useState("");
+    const [description, setDescription] = useState("");
+    const isInput = "entrada";
 
-    function saveInput(event) {
+    async function saveInput(event) {
         event.preventDefault();
+        const obj = {
+            value,
+            description,
+            type: isInput
+        };
+        await axios.post(`http://${REACT_APP_API_URL}/nova-entrada`,obj,{headers:{user:user.name}})
+        .then(res => {
+            console.log(res);
+            navigate("/home")
+        })
+        .catch(err => {console.log(err)});
     }
     return (
         <Back colors={colors} fonts={fonts}>
