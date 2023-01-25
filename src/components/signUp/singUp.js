@@ -16,7 +16,7 @@ export default function SignUp() {
 
     function signUp(event) {
         event.preventDefault();
-        axios.post(`http://${REACT_APP_API_URL}/cadastro`,{
+        axios.post(`${REACT_APP_API_URL}/cadastro`,{
             name: userName,
             email: userEmail,
             password: password,
