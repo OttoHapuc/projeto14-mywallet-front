@@ -1,6 +1,7 @@
 import GlobalStyle from "./assets/css/GlobalStyled";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
+import UserContext from "./constext/valoresBase"
 
 import Login from "./components/login/login";
 import SignUp from "./components/signUp/singUp";
@@ -12,17 +13,18 @@ function App() {
   const [user, setUser] = useState(null)
   return (
     <div className="App">
-
-      <GlobalStyle />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login setUser={setUser}/>} />
-          <Route path="/cadastro" element={<SignUp />} />
-          <Route path="/home" element={<Home user={user}/>} />
-          <Route path="/nova-entrada" element={<NovaEntrada user={user}/>} />
-          <Route path="/nova-saida" element={<NovaSaida user={user}/>} />
-        </Routes>
-      </BrowserRouter>
+      <UserContext.Provider value={{user, setUser}}>
+        <GlobalStyle />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/cadastro" element={<SignUp />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/nova-entrada" element={<NovaEntrada />} />
+            <Route path="nova-saida" element={<NovaSaida />} />
+          </Routes>
+        </BrowserRouter>
+      </UserContext.Provider>
     </div>
   );
 }

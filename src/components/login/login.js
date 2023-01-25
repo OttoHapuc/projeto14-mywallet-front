@@ -3,10 +3,12 @@ import fonts from "../../providers/fonts";
 import Back from "../../assets/css/base"
 
 import {Link, useNavigate} from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "../../constext/valoresBase";
 import axios from "axios";
-export default function Login({setUser}){
+export default function Login(){
 
+    const {setUser} = useContext(UserContext);
     const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
     const navigate = useNavigate();
     const[userEmail, setUserEmail] = useState("");
@@ -20,6 +22,7 @@ export default function Login({setUser}){
         })
             .then((element) => {
                 setUser(element.data);
+                console.log(element.data);
             })
             .catch ((error) => { console.log(error) });
         navigate("/home")
