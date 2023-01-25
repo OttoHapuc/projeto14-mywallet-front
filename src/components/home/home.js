@@ -14,7 +14,7 @@ export default function Home() {
     const navigate = useNavigate()
     const [balance, setBalance] = useState([]);
     useEffect(() => {
-        axios.get(`http://${REACT_APP_API_URL}/home`, { headers: { user: user.name } })
+        axios.get(`${REACT_APP_API_URL}/home`, { headers: { user: user.name } })
             .then(res => {
                 setBalance(res.data);
             })
