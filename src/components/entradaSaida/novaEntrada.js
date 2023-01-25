@@ -22,7 +22,7 @@ export default function NovaEntrada() {
             description,
             type: isInput
         };
-        await axios.post(`http://${REACT_APP_API_URL}/nova-entrada-saida`,obj,{headers:{user:user.name}})
+        await axios.post(`${REACT_APP_API_URL}/nova-entrada-saida`,obj,{headers:{user:user.name}})
         .then(res => {
             console.log(res);
             navigate("/home")
