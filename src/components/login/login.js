@@ -16,7 +16,7 @@ export default function Login(){
 
     async function login(event){
         event.preventDefault();
-        await axios.post(`http://${REACT_APP_API_URL}`,{
+        await axios.post(`${REACT_APP_API_URL}`,{
             email: userEmail,
             password: password
         })
