@@ -44,7 +44,7 @@ export default function Home() {
                         }) : <p style={{ color: "#868686" }}>Não há entradas ou saidas</p>
                     }
                 </div>
-                {balance.length > 0 && <div className="saldo"><p style={{ color: "black" }}>Saldo</p><p style={cont > 0 ? { color: "#03AC00" } : { color: "#C70000" }}>R$ {cont}</p></div>}
+                {balance.length > 0 && <div className="saldo"><p style={{ color: "black" }}>Saldo</p><p style={cont > 0 ? { color: "#03AC00" } : { color: "#C70000" }}>R$ {cont.toFixed(2)}</p></div>}
             </div>
             <div className="buttons">
                 <button onClick={() => navigate("/nova-entrada")}><p><ion-icon name="add-circle-outline"></ion-icon></p><br/><br/><p>Nova entrada</p></button>
