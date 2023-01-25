@@ -22,10 +22,9 @@ export default function Login(){
         })
             .then((element) => {
                 setUser(element.data);
-                console.log(element.data);
+                navigate("/home")
             })
-            .catch ((error) => { console.log(error) });
-        navigate("/home")
+            .catch ((error) => { alert("erro 401 " + error.response.data) });
     }
     return(
         <Back colors={colors} fonts={fonts}>

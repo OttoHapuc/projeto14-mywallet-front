@@ -12,11 +12,29 @@ form{
     display: flex;
     flex-direction: column;
 }
+.header{
+    width: 100%;
+    padding: 8px 24px ;
+    ion-icon{
+        font-size: 26px;
+        color: white;
+    }
+}
 
 h1{
+    margin: 15px;
+    font-size: 32px;
+    color: white;
     font-family: ${prop => prop.fonts.fontFamily.logo}
 }
+p,a,Link, button, input{
+    color: white;
+    text-decoration:none;
+    font-family: ${prop => prop.fonts.fontFamily.commonsText};
+    font-size: 20px;
+}
 input{
+    color:black;
     width: 326px;
     height: 58px;
     padding: 0 14px;
@@ -25,15 +43,23 @@ input{
     margin-bottom: 13px
 }
 button{
+    margin-top: 15px;
     width: 326px;
     height: 46px;    
     background-color: ${prop => prop.colors.buttonColor};
     border-radius: 5px;
     border: none;
+    font-weight: bold;
+}
+.titt{
+    display: flex;
+    justify-content: space-between;
 }
 
 h2{
-    font-family: ${prop => prop.fonts.fontFamily.logo}
+    color:white;
+    font-size: 26px;
+    font-family: ${prop => prop.fonts.fontFamily.titles};
 }
 .content{
     width: 326px;
@@ -43,6 +69,22 @@ h2{
     justify-content: space-between;
     background: #ffffff;
     border-radius: 5px;
+    padding: 14px;
+
+    p{
+        display: flex;
+    }
+    .saldo {
+        display: flex;
+        justify-content: space-between;
+    }
+    li{
+        display: flex;
+        justify-content: space-between;
+    }
+    p > p{
+        margin-right: 10px;
+    }
 }
 .buttons{
     display: flex;
