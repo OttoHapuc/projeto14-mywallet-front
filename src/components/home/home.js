@@ -39,7 +39,7 @@ export default function Home() {
                             return (
                                 <li key={i}>
                                     <p style={{ color: "black" }}><p style={{ color: "black" }}>{valor.data}</p>{valor.description}</p>
-                                    <p style={valor.type === "entrada" ? { color: "#03AC00" } : { color: "#C70000" }}>{valor.value}</p>
+                                    <p style={valor.type === "entrada" ? { color: "#03AC00" } : { color: "#C70000" }}>{valor.value.toFixed(2)}</p>
                                 </li>)
                         }) : <p style={{ color: "#868686" }}>Não há entradas ou saidas</p>
                     }
